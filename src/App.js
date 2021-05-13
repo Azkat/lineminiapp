@@ -8,12 +8,13 @@ window.onload = function() {
 };
 
 function initializeLiff(myLiffId) {
-  window.alert('あああ');
-  /* liff
+  
+  liff
   .init({
       liffId: "1655976024-YbEzZbBX"
   })
   .then(() => {
+      window.alert('あああ');
       liff.scanCode().then(result => {
           const stringifiedResult = result.value;
           liff.sendMessages([{
@@ -30,7 +31,7 @@ function initializeLiff(myLiffId) {
   })
   .catch((err) => {
       window.alert('Something went wrong with LIFF initialization.');
-  }); */
+  });
 }
 
 function App() {
