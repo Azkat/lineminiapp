@@ -8,7 +8,8 @@ window.onload = function() {
 };
 
 function initializeLiff(myLiffId) {
-  liff
+  window.alert('あああ');
+  /* liff
   .init({
       liffId: "1655976024-YbEzZbBX"
   })
@@ -29,7 +30,7 @@ function initializeLiff(myLiffId) {
   })
   .catch((err) => {
       window.alert('Something went wrong with LIFF initialization.');
-  });
+  }); */
 }
 
 function App() {
