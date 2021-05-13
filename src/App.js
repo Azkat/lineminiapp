@@ -1,8 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
 
+
 window.onload = function() {
-  const defaultLiffId = process.env.API_KEY;
+  const defaultLiffId = '1655976024-YbEzZbBX';
   initializeLiff(defaultLiffId);
 };
 
