@@ -10,7 +10,7 @@ window.onload = function() {
 function initializeLiff(myLiffId) {
   liff
   .init({
-      liffId: myLiffId
+      liffId: "1655976024-YbEzZbBX"
   })
   .then(() => {
       liff.scanCode().then(result => {
