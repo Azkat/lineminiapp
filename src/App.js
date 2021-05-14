@@ -18,6 +18,7 @@ function initializeLiff(myLiffId) {
       window.alert('ログインしています')
     } else {
       window.alert('ログアウト')
+      liff.login();
     }
   })
   .catch((err) => {
