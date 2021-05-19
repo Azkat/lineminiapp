@@ -1,6 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
 import liff from '@line/liff';
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import PrivateRoute from "./auth/PrivateRoute";
+import { AuthProvider } from "./auth/AuthProvider";
+import Home from "./components/Home";
+import Login from "./auth/Login";
+import SignUp from "./auth/SignUp";
 
 window.onload = function() {
   const defaultLiffId = "1655976024-YbEzZbBX";
@@ -8,7 +15,6 @@ window.onload = function() {
 };
 
 function initializeLiff(myLiffId) {
-  
   liff
   .init({
       liffId: "1655976024-YbEzZbBX"
@@ -18,7 +24,7 @@ function initializeLiff(myLiffId) {
       window.alert('ログインしています')
     } else {
       window.alert('ログアウト')
-      liff.login();
+      liff.login()
     }
   })
   .catch((err) => {
@@ -27,10 +33,32 @@ function initializeLiff(myLiffId) {
 }
 
 function App() {
+
+  const [uid, setUid] = React.useState('')
+
+  React.useEffect(()=>{
+    if (liff.isLoggedIn()) {
+      const context = liff.getContext()
+      setUid(context.userId)
+    } 
+  }, [])
+
   return (
-    <div className="App">
-      あああ
-    </div>
+    <AuthProvider>
+      <Router>
+        <div>
+          <PrivateRoute exact path="/" component={Home} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={SignUp} />
+          <div className="App">
+            httpsでlocalhostにアクセスしています
+          </div>
+          <div className="App">
+            UID : {uid}
+          </div>
+        </div>
+      </Router>
+    </AuthProvider>
   );
 }
 

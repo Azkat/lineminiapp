@@ -1,3 +1,6 @@
+# https start up on local
+HTTPS=true SSL_CRT_FILE=$(mkcert -CAROOT)/localhost.pem SSL_KEY_FILE=$(mkcert -CAROOT)/localhost-key.pem npm start
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
