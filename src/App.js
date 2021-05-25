@@ -35,11 +35,15 @@ function initializeLiff(myLiffId) {
 function App() {
 
   const [uid, setUid] = React.useState('')
+  const [accessToken, setAccessToken] = React.useState('トークン')
 
   React.useEffect(()=>{
     if (liff.isLoggedIn()) {
       const context = liff.getContext()
+      const liffToken = liff.getAccessToken()
       setUid(context.userId)
+      setAccessToken(liffToken.notificationToken)
+      console.log(liffToken)
     } 
   }, [])
 
@@ -55,6 +59,9 @@ function App() {
           </div>
           <div className="App">
             UID : {uid}
+          </div>
+          <div className="App">
+            アクセストークン : {accessToken}
           </div>
         </div>
       </Router>
