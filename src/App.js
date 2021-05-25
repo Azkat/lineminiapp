@@ -10,14 +10,14 @@ import Login from "./auth/Login";
 import SignUp from "./auth/SignUp";
 
 window.onload = function() {
-  const defaultLiffId = "1655976024-YbEzZbBX";
+  const defaultLiffId = "1655993509-yMrwxY9M";
   initializeLiff(defaultLiffId);
 };
 
 function initializeLiff(myLiffId) {
   liff
   .init({
-      liffId: "1655976024-YbEzZbBX"
+      liffId: "1655993509-yMrwxY9M"
   })
   .then(() => {
     if (liff.isLoggedIn()) {
