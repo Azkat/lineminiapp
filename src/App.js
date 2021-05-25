@@ -42,7 +42,7 @@ function App() {
       const context = liff.getContext()
       const liffToken = liff.getAccessToken()
       setUid(context.userId)
-      setAccessToken(liffToken.notificationToken)
+      setAccessToken(liffToken)
       console.log(liffToken)
     } 
   }, [])
@@ -61,8 +61,13 @@ function App() {
             UID : {uid}
           </div>
           <div className="App">
+            <a href="/signup">sign up</a>
+          </div>
+          <div className="App">
             アクセストークン : {accessToken}
           </div>
+          
+          <a href="#">サービスメッセージを送る</a>
         </div>
       </Router>
     </AuthProvider>
