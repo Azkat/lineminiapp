@@ -8,6 +8,7 @@ import { AuthProvider } from "./auth/AuthProvider";
 import Home from "./components/Home";
 import Login from "./auth/Login";
 import SignUp from "./auth/SignUp";
+import axios from 'axios';
 
 window.onload = function() {
   const defaultLiffId = "1655993509-yMrwxY9M";
@@ -30,6 +31,13 @@ function initializeLiff(myLiffId) {
   .catch((err) => {
       window.alert('Something went wrong with LIFF initialization.');
   });
+}
+
+function getServiveMessage(){
+  axios.get(`https://sm-php01.herokuapp.com/`)
+  .then(res => {
+    window.alert('送りました')
+  })
 }
 
 function App() {
@@ -67,7 +75,7 @@ function App() {
             アクセストークン : {accessToken}
           </div>
           
-          <a href="#">サービスメッセージを送る</a>
+          <a href="#" onClick={getServiveMessage}>サービスメッセージを送る</a>
         </div>
       </Router>
     </AuthProvider>
