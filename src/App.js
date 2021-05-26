@@ -33,8 +33,8 @@ function initializeLiff(myLiffId) {
   });
 }
 
-function getServiveMessage(){
-  axios.get(`https://sm-php01.herokuapp.com/`)
+function getServiveMessage(accessToken){
+  axios.get(`https://sm-php01.herokuapp.com/?access_token=` + accessToken)
   .then(res => {
     window.alert('送りました')
   })
@@ -75,7 +75,7 @@ function App() {
             アクセストークン : {accessToken}
           </div>
           
-          <a href="#" onClick={getServiveMessage}>サービスメッセージを送る</a>
+          <a href="#" onClick={getServiveMessage(accessToken)}>サービスメッセージを送る</a>
         </div>
       </Router>
     </AuthProvider>
