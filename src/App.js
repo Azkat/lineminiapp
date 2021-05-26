@@ -5,6 +5,7 @@ import React, { useContext } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import PrivateRoute from "./auth/PrivateRoute";
 import { AuthProvider } from "./auth/AuthProvider";
+import { AuthContext } from "./auth/AuthProvider";
 import Home from "./components/Home";
 import Login from "./auth/Login";
 import SignUp from "./auth/SignUp";
@@ -45,15 +46,13 @@ function App() {
   const [uid, setUid] = React.useState('')
   const [accessToken, setAccessToken] = React.useState('')
 
-  const { getUid } = useContext(AuthContext);
-
   React.useEffect(() => {
     if (liff.isLoggedIn()) {
       const context = liff.getContext()
       const liffToken = liff.getAccessToken()
       setUid(context.userId)
       setAccessToken(liffToken)
-      getUid(context.userId)
+      //getUid(context.userId)
       console.log(liffToken)
     } 
   }, [])

@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
     } 
   };
 
-  const getUid = async () => {
+  const getuid = async () => {
     try {
       const userRef = await db.collection("users").doc()
       const userProfile = await liff.getProfile()
@@ -51,7 +51,7 @@ export const AuthProvider = ({ children }) => {
         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
         updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
       })
-      history.push("/");
+      alert('uidを保存しました。')
     } catch (error) {
       alert(error);
     } 
@@ -67,7 +67,7 @@ export const AuthProvider = ({ children }) => {
       value={{
         login: login,
         signup: signup,
-        getUid: getUid,
+        getuid: getuid,
         currentUser
       }}
     >
