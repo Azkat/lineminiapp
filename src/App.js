@@ -43,9 +43,9 @@ function getServiveMessage(accessToken){
 function App() {
 
   const [uid, setUid] = React.useState('')
-  const [accessToken, setAccessToken] = React.useState('トークン')
+  const [accessToken, setAccessToken] = React.useState('')
 
-  React.useEffect(()=>{
+  React.useEffect(() => {
     if (liff.isLoggedIn()) {
       const context = liff.getContext()
       const liffToken = liff.getAccessToken()
