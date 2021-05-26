@@ -10,6 +10,25 @@ import Home from "./components/Home";
 import Login from "./auth/Login";
 import SignUp from "./auth/SignUp";
 import axios from 'axios';
+import { app, db } from "./base.js";
+import firebase from "firebase/app";
+
+const setuid = async () => {
+  try {
+    const userProfile = await liff.getProfile()
+    const lineUid = await userProfile.userId
+
+    const userRef = await db.collection("users").doc()
+    await userRef.set({
+      lineuid: lineUid,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+      updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
+    })
+    window.alert('ログインしています。UID('+ lineUid +')を取得しました')
+  } catch (error) {
+    alert(error);
+  } 
+};
 
 window.onload = function() {
   const defaultLiffId = "1655993509-yMrwxY9M";
@@ -23,7 +42,7 @@ function initializeLiff(myLiffId) {
   })
   .then(() => {
     if (liff.isLoggedIn()) {
-      window.alert('ログインしています')
+      setuid()
     } else {
       window.alert('ログアウト')
       liff.login()
