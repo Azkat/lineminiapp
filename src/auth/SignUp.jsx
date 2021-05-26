@@ -4,9 +4,7 @@ import { AuthContext } from "./AuthProvider";
 
 const SignUp = ({ history }) => {
   const { signup } = useContext(AuthContext);
-  const { getuid } = useContext(AuthContext);
 
-  getuid()
   // AuthContextからsignup関数を受け取る
   const handleSubmit = event => {
     event.preventDefault();

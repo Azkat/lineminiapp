@@ -71,8 +71,6 @@ function App() {
       const liffToken = liff.getAccessToken()
       setUid(context.userId)
       setAccessToken(liffToken)
-      //getUid(context.userId)
-      console.log(liffToken)
     } 
   }, [])
 
