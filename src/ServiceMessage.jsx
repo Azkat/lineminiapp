@@ -33,8 +33,8 @@ const ServiceMessage = ({ history }) => {
           return <tr>
                 <td>{item.id}</td>
                 <td>{item.name}</td>
-                <td>{item.notificationToken}</td>
-                <td>{item.accessToken}</td>
+                <td>{item.notification_token}</td>
+                <td>{item.access_token}</td>
                 <td><a href="#">送る</a></td>
               </tr>
         })
