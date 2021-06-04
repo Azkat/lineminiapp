@@ -2,6 +2,14 @@ import React, { useContext } from "react";
 import { withRouter } from "react-router";
 import axios from 'axios';
 
+
+function onwardMessages(notificationToken){
+  axios.get(`https://sm-php01.herokuapp.com/?notification_token=` + notificationToken)
+  .then(res => {
+    window.alert('後続メッセージを送りました')
+  })
+}
+
 const ServiceMessage = ({ history }) => {
 
   function getServiveMessageList(accessToken){
@@ -35,7 +43,7 @@ const ServiceMessage = ({ history }) => {
                 <td>{item.name}</td>
                 <td>{item.notification_token}</td>
                 <td>{item.access_token}</td>
-                <td><a href="#">送る</a></td>
+                <td><a href="#" onClick={()=>{onwardMessages(item.notification_token)}}>送る</a></td>
               </tr>
         })
       }
