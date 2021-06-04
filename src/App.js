@@ -9,6 +9,7 @@ import { AuthContext } from "./auth/AuthProvider";
 import Home from "./components/Home";
 import Login from "./auth/Login";
 import SignUp from "./auth/SignUp";
+import ServiceMessage from "./ServiceMessage";
 import axios from 'axios';
 import { app, db } from "./base.js";
 import firebase from "firebase/app";
@@ -31,14 +32,16 @@ const setuid = async () => {
 };
 
 window.onload = function() {
-  const defaultLiffId = "1655993509-yMrwxY9M";
+  //const defaultLiffId = "1655993509-yMrwxY9M"; //本番ミニアプリ
+  const defaultLiffId = "1655976024-YbEzZbBX"; //LIFF
   initializeLiff(defaultLiffId);
 };
 
 function initializeLiff(myLiffId) {
   liff
   .init({
-      liffId: "1655993509-yMrwxY9M"
+      //liffId: "1655993509-yMrwxY9M" //本番ミニアプリ
+      liffId: "1655976024-YbEzZbBX" //LIFF
   })
   .then(() => {
     if (liff.isLoggedIn()) {
@@ -81,6 +84,7 @@ function App() {
           <PrivateRoute exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/service_message" component={ServiceMessage} />
           <div className="App">
             httpsでlocalhostにアクセスしています
           </div>
@@ -94,7 +98,7 @@ function App() {
             アクセストークン : {accessToken}
           </div>
           
-          <a href="#" onClick={getServiveMessage(accessToken)}>サービスメッセージを送る</a>
+          <a href="#" onClick={() => getServiveMessage(accessToken)}>サービスメッセージを送る</a>
         </div>
       </Router>
     </AuthProvider>
