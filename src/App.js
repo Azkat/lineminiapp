@@ -32,16 +32,16 @@ const setuid = async () => {
 };
 
 window.onload = function() {
-  //const defaultLiffId = "1655993509-yMrwxY9M"; //本番ミニアプリ
-  const defaultLiffId = "1655976024-YbEzZbBX"; //LIFF
+  const defaultLiffId = "1655993509-yMrwxY9M"; //本番ミニアプリ
+  //const defaultLiffId = "1655976024-YbEzZbBX"; //LIFF
   initializeLiff(defaultLiffId);
 };
 
 function initializeLiff(myLiffId) {
   liff
   .init({
-      //liffId: "1655993509-yMrwxY9M" //本番ミニアプリ
-      liffId: "1655976024-YbEzZbBX" //LIFF
+      liffId: "1655993509-yMrwxY9M" //本番ミニアプリ
+      //liffId: "1655976024-YbEzZbBX" //LIFF
   })
   .then(() => {
     if (liff.isLoggedIn()) {
