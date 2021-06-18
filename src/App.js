@@ -78,8 +78,8 @@ function App() {
   return (
     <AuthProvider>
       <Router>
-        <div>
-          <PrivateRoute exact path="/" component={Home} />
+        <div className="wrapper">
+          <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/service_message" component={ServiceMessage} />

@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { withRouter } from "react-router";
 import { AuthContext } from "./AuthProvider";
+import Typography from '@material-ui/core/Typography';
 
 const Login = ({ history }) => {
   const { login } = useContext(AuthContext);
@@ -14,7 +15,7 @@ const Login = ({ history }) => {
 
   return (
     <div>
-      <h1>Log in</h1>
+      log in
       <form onSubmit={handleSubmit}>
         <label>
           Email

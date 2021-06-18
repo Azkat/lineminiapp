@@ -17,3 +17,21 @@ table{
   width: 1000px;
   word-break: break-all;
 }
+
+.wrapper{
+  padding: 0 10px 0 10px;
+}
+
+.header-logo{
+  width: 100%;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.header-logo img {
+  width: 100%;
+}
+
+.button-margin{
+  margin-bottom: 20px;
+}
