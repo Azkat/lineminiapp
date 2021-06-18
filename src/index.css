@@ -29,6 +29,13 @@ table{
   margin-top: 12px;
 }
 
+.header-menu{
+  width: 100%;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 40px;
+}
+
 .header-image{
   width: 100%;
   text-align: center;
@@ -41,4 +48,8 @@ table{
 
 .button-margin{
   margin-bottom: 20px;
+}
+
+.menu-wrapper {
+  min-height: 1100px;
 }

@@ -32,7 +32,7 @@ function Home(props) {
 
 
   return (
-    <div>
+    <div className="menu-wrapper">
       <div className="header-logo">
         <img src="/logo.png"/>
       </div>

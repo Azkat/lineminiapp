@@ -9,7 +9,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme, Theme, createStyles } from '@material-ui/core/styles';
 import Fab from '@material-ui/core/Fab';
-import NavigationIcon from '@material-ui/icons/Navigation';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 
 async function getUsers(){
   const userRef = db.collection('user').doc('9yvOmyYlVzhpnnzLhvOl')
@@ -43,8 +43,8 @@ function Menu(props) {
 
 
   return (
-    <div>
-      <div className="header-logo">
+    <div className="menu-wrapper">
+      <div className="header-menu">
         メニュー
       </div>
 
@@ -70,6 +70,11 @@ function Menu(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
+      <ButtonGroup size="small" aria-label="small outlined button group">
+        <Button>-</Button>
+        <Button>1</Button>
+        <Button>+</Button>
+      </ButtonGroup>
         <Button size="small" color="primary">
         カートに入れる
         </Button>
@@ -98,6 +103,11 @@ function Menu(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
+      <ButtonGroup size="small" aria-label="small outlined button group">
+        <Button>-</Button>
+        <Button>1</Button>
+        <Button>+</Button>
+      </ButtonGroup>
         <Button size="small" color="primary">
           カートに入れる
         </Button>
