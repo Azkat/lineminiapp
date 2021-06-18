@@ -11,7 +11,6 @@ import Menu from "./components/Menu";
 import Login from "./auth/Login";
 import SignUp from "./auth/SignUp";
 import ServiceMessage from "./ServiceMessage";
-import axios from 'axios';
 import { app, db } from "./base.js";
 import firebase from "firebase/app";
 
@@ -29,9 +28,9 @@ const setuid = async () => {
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
     })
-    window.alert('ログインしています。UID('+ lineUid +')を取得しました')
+    //window.alert('ログインしています。UID('+ lineUid +')を取得しました')
   } catch (error) {
-    alert(error);
+    //alert(error);
   } 
 };
 
@@ -58,13 +57,6 @@ function initializeLiff(myLiffId) {
   });
 }
 
-function getServiveMessage(accessToken){
-  axios.get(`https://sm-php01.herokuapp.com/?access_token=` + accessToken)
-  .then(res => {
-    window.alert('送りました') 
-  })
-}
-
 function App() {
   const [uid, setUid] = React.useState('')
   const [init, setInit] = React.useState(false)
@@ -87,23 +79,9 @@ function App() {
         <div className="wrapper">
           <Route exact path="/" component={Home} />
           <Route exact path="/menu" component={Menu} />
-          <Route exact path="/login" component={Login} />
+          <Route exact path="/login" component={Login} accessToken={accessToken} uid={uid}/>
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/service_message" component={ServiceMessage} />
-          <div className="App">
-            httpsでlocalhostにアクセスしています
-          </div>
-          <div className="App">
-            UID : {uid}
-          </div>
-          <div className="App">
-            <a href="/signup">sign up</a>
-          </div>
-          <div className="App">
-            アクセストークン : {accessToken}
-          </div>
-          
-          <a href="#" onClick={() => getServiveMessage(accessToken)}>サービスメッセージを送る</a>
         </div>
       </Router>
     </AuthProvider>

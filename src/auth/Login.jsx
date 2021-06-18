@@ -1,9 +1,18 @@
 import React, { useContext } from "react";
 import { withRouter } from "react-router";
 import { AuthContext } from "./AuthProvider";
+import axios from 'axios';
 import Typography from '@material-ui/core/Typography';
+import { app, db } from "../base.js";
 
-const Login = ({ history }) => {
+function getServiveMessage(accessToken){
+  axios.get(`https://sm-php01.herokuapp.com/?access_token=` + accessToken)
+  .then(res => {
+    window.alert('送りました') 
+  })
+}
+
+const Login = (props, { history }) => {
   const { login } = useContext(AuthContext);
 
   // AuthContextからlogin関数を受け取る
@@ -27,6 +36,25 @@ const Login = ({ history }) => {
         </label>
         <button type="submit">Log in</button>
       </form>
+
+      <div className="App">
+            httpsでlocalhostにアクセスしています
+          </div>
+          <div className="App">
+            UID : {props.uid}
+          </div>
+          <div className="App">
+            <a href="/signup">sign up</a>
+          </div>
+          <div className="App">
+            アクセストークン : {props.accessToken}
+          </div>
+          
+          <a href="#" onClick={() => getServiveMessage(props.accessToken)}>サービスメッセージを送る</a>
+
+
+
+          <button onClick={() => app.auth().signOut()}>Sign out</button>
     </div>
   );
 };

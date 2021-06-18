@@ -25,6 +25,13 @@ table{
 .header-logo{
   width: 100%;
   text-align: center;
+  margin-bottom: 4px;
+  margin-top: 12px;
+}
+
+.header-image{
+  width: 100%;
+  text-align: center;
   margin-bottom: 48px;
 }
 

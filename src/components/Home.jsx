@@ -2,6 +2,7 @@ import React from "react";
 import { app, db } from "../base.js";
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import Box from '@material-ui/core/Box';
 import { Link } from "react-router-dom";
 
 async function getUsers(){
@@ -35,6 +36,10 @@ function Home(props) {
       <div className="header-logo">
         <img src="/logo.png"/>
       </div>
+
+      <Box color="text.primary" clone className="header-image">
+        <img src="/cafe.jpg"/>
+      </Box>
       
       <Button
         variant="contained"
@@ -49,10 +54,8 @@ function Home(props) {
       </Button>
 
       <Button variant="outlined" color="primary" fullWidth="true" >
-        ログイン
+        店舗ログイン
       </Button>
-
-      <button onClick={() => app.auth().signOut()}>Sign out</button>
     </div>
   );
 }
