@@ -7,6 +7,7 @@ import PrivateRoute from "./auth/PrivateRoute";
 import { AuthProvider } from "./auth/AuthProvider";
 import { AuthContext } from "./auth/AuthProvider";
 import Home from "./components/Home";
+import Menu from "./components/Menu";
 import Login from "./auth/Login";
 import SignUp from "./auth/SignUp";
 import ServiceMessage from "./ServiceMessage";
@@ -14,8 +15,11 @@ import axios from 'axios';
 import { app, db } from "./base.js";
 import firebase from "firebase/app";
 
+
+let isLogin = false
 const setuid = async () => {
   try {
+    isLogin = true
     const userProfile = await liff.getProfile()
     const lineUid = await userProfile.userId
 
@@ -57,22 +61,24 @@ function initializeLiff(myLiffId) {
 function getServiveMessage(accessToken){
   axios.get(`https://sm-php01.herokuapp.com/?access_token=` + accessToken)
   .then(res => {
-    window.alert('送りました')
+    window.alert('送りました') 
   })
 }
 
 function App() {
-
   const [uid, setUid] = React.useState('')
+  const [init, setInit] = React.useState(false)
   const [accessToken, setAccessToken] = React.useState('')
 
   React.useEffect(() => {
-    if (liff.isLoggedIn()) {
-      const context = liff.getContext()
-      const liffToken = liff.getAccessToken()
-      setUid(context.userId)
-      setAccessToken(liffToken)
-    } 
+    liff.ready.then(() => {
+      if (liff.isLoggedIn()) {
+        const context = liff.getContext()
+        const liffToken = liff.getAccessToken()
+        setUid(context.userId)
+        setAccessToken(liffToken)
+      } 
+    })
   }, [])
 
   return (
@@ -80,6 +86,7 @@ function App() {
       <Router>
         <div className="wrapper">
           <Route exact path="/" component={Home} />
+          <Route exact path="/menu" component={Menu} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/service_message" component={ServiceMessage} />

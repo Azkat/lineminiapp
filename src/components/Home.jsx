@@ -2,6 +2,7 @@ import React from "react";
 import { app, db } from "../base.js";
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import { Link } from "react-router-dom";
 
 async function getUsers(){
   const userRef = db.collection('user').doc('9yvOmyYlVzhpnnzLhvOl')
@@ -35,10 +36,14 @@ function Home(props) {
         <img src="/logo.png"/>
       </div>
       
-      <Button variant="contained" color="primary" fullWidth="true" 
+      <Button
+        variant="contained"
+        color="primary"
+        fullWidth="true"
         classes={{
           root: classes.root
         }}
+        href="/menu"
       >
         メニューをみる
       </Button>
