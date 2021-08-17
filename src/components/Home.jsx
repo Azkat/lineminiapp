@@ -40,6 +40,14 @@ function Home(props) {
       <Box color="text.primary" clone className="header-image">
         <img src="/cafe.jpg"/>
       </Box>
+
+      <a href="https://liff.line.me/1655962227-ZNgwPXKE">
+        リンク①
+      </a>
+
+      <a href="https://liff.line.me/1655962227-ZNgwPXKE">
+        リンク②
+      </a>
       
       <Button
         variant="contained"
