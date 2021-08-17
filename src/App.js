@@ -40,7 +40,7 @@ window.onload = function() {
   initializeLiff(defaultLiffId);
 };
 
-function initializeLiff(myLiffId) {
+/* function initializeLiff(myLiffId) {
   liff
   .init({
       liffId: process.env.REACT_APP_LIFF_ID
@@ -57,7 +57,7 @@ function initializeLiff(myLiffId) {
   .catch((err) => {
       window.alert('Something went wrong with LIFF initialization.');
   });
-}
+} */
 
 function App() {
   const [uid, setUid] = React.useState('')
