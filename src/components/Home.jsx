@@ -49,6 +49,10 @@ function Home(props) {
       <a href="https://liff.line.me/1655976024-YbEzZbBX">
         リンク②
       </a>
+
+      <a href="https://lifftest-atsushikato05.herokuapp.com/">
+        リンク① : エンドポイント直書き
+      </a>
       
       <Button
         variant="contained"
