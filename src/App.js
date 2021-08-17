@@ -37,7 +37,7 @@ const setuid = async () => {
 
 window.onload = function() {
   const defaultLiffId = process.env.REACT_APP_LIFF_ID;
-  initializeLiff(defaultLiffId);
+  //initializeLiff(defaultLiffId);
 };
 
 /* function initializeLiff(myLiffId) {
