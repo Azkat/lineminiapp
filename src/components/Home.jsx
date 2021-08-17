@@ -37,6 +37,7 @@ function Home(props) {
         <img src="/logo.png"/>
       </div>
 
+      ②②②②②②②
       <Box color="text.primary" clone className="header-image">
         <img src="/cafe.jpg"/>
       </Box>
