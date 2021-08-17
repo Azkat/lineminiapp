@@ -45,7 +45,7 @@ function Home(props) {
         リンク①
       </a>
 
-      <a href="https://liff.line.me/1655962227-ZNgwPXKE">
+      <a href="https://liff.line.me/1655976024-YbEzZbBX">
         リンク②
       </a>
       
