@@ -8,6 +8,7 @@ import { AuthProvider } from "./auth/AuthProvider";
 import { AuthContext } from "./auth/AuthProvider";
 import Home from "./components/Home";
 import Menu from "./components/Menu";
+import Cart from "./components/Cart";
 import Login from "./auth/Login";
 import SignUp from "./auth/SignUp";
 import ServiceMessage from "./ServiceMessage";
@@ -46,6 +47,7 @@ function initializeLiff(myLiffId) {
   })
   .then(() => {
     if (liff.isLoggedIn()) {
+      window.alert('ログイン')
       setuid()
     } else {
       window.alert('ログアウト')
@@ -79,6 +81,7 @@ function App() {
         <div className="wrapper">
           <Route exact path="/" component={Home} />
           <Route exact path="/menu" component={Menu} />
+          <Route exact path="/cart" component={Cart} />
           <Route exact path="/login" component={Login} accessToken={accessToken} uid={uid}/>
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/service_message" component={ServiceMessage} />
